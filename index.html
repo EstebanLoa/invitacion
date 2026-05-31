@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Jennifer & Gustavo - Nos Casamos</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/icono.png" rel="icon">
+    <link href="img/icono.png" rel="icon" type="image/png">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        /* ========== OVERLAY - INVITACIÓN ========== */
+        .invitation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, #7c5cbf, #4a6fa5);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(3px);
+        }
+        
+        .a4-invitation {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            min-height: 850px;
+            max-height: 950px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 30px 50px -15px rgba(0,0,0,0.6),
+                        0 15px 25px -10px rgba(0,0,0,0.4),
+                        inset 0 1px 0 rgba(255,255,255,0.8);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+        
+        @media (max-width: 500px) {
+            .a4-invitation {
+                max-width: 90%;
+                min-height: 750px;
+                max-height: 850px;
+            }
+        }
+        
+        .invitation-svg-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('invitacion.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .btn-music-choice {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 240px;
+            margin: 0 auto;
+            position: absolute;
+            top: 58%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        
+        .btn-music {
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-music-primary {
+            background: linear-gradient(135deg, #7c5cbf, #4a6fa5);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        
+        .btn-music-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+        
+        .btn-music-secondary {
+            background: white;
+            color: #7c5cbf;
+            border: 2px solid #7c5cbf;
+        }
+        
+        .btn-music-secondary:hover {
+            transform: translateY(-2px);
+            background: #f5f0ff;
+        }
+        
+        .wax-seal-real {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at 35% 35%, #ffd700, #d4a017);
+            border-radius: 50%;
+            box-shadow: 0 15px 28px rgba(0,0,0,0.5), 0 0 0 4px rgba(255,245,200,0.6);
+            z-index: 10;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            animation: elegantPulse 2.8s infinite;
+        }
+        
+        .wax-seal-real:active {
+            transform: translateX(-50%) scale(0.94);
+        }
+        
+        .wax-seal-real::before {
+            content: "J&G";
+            position: absolute;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            color: #5a2d6e;
+            font-weight: 700;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+        
+        @keyframes elegantPulse {
+            0% { box-shadow: 0 15px 28px rgba(0,0,0,0.5), 0 0 0 4px rgba(255,245,200,0.6); }
+            50% { box-shadow: 0 20px 35px rgba(0,0,0,0.6), 0 0 0 6px rgba(255,245,200,0.8); }
+            100% { box-shadow: 0 15px 28px rgba(0,0,0,0.5), 0 0 0 4px rgba(255,245,200,0.6); }
+        }
+        
+        .fade-out-overlay {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.5s ease, visibility 0s 0.5s;
+        }
+        
+        #mainContent {
+            display: none;
+        }
+        
+        body.scrollable {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        
+        .floating-music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #7c5cbf, #4a6fa5);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: none;
+            transition: transform 0.2s ease;
+        }
+        
+        .floating-music-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .hero-fixed {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 400px;
+            overflow: hidden;
+        }
+        
+        .hero-fixed img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero-overlay h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-overlay .border-box {
+            display: inline-block;
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            padding: 0.75rem 1.5rem;
+        }
+        
+        .hero-overlay h3 {
+            letter-spacing: 2px;
+            font-size: clamp(0.9rem, 3vw, 1.5rem);
+        }
+        
+        /* ========== CONTADOR ELEGANTE REDISEÑADO ========== */
+        .countdown-section {
+            background: linear-gradient(135deg, #7e5ec4ee 0%, #7c5cbf 100%);
+            padding: 70px 20px;
+            margin: 0;
+            position: relative;
+        }
+        
+        .countdown-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .countdown-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .countdown-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 25px;
+            min-width: 110px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(124,92,191,0.12);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(124,92,191,0.15);
+        }
+        
+        .countdown-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 40px rgba(124,92,191,0.2);
+            border-color: rgba(124,92,191,0.3);
+        }
+        
+        .countdown-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #7c5cbf, #4a6fa5);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        
+        .countdown-unit {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #4a6fa5;
+            background: rgba(124,92,191,0.1);
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 30px;
+        }
+        
+        @media (max-width: 650px) {
+            .countdown-container {
+                gap: 15px;
+            }
+            .countdown-card {
+                min-width: 75px;
+                padding: 15px 12px;
+            }
+            .countdown-number {
+                font-size: 2.2rem;
+            }
+            .countdown-unit {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+            }
+            .countdown-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .countdown-card {
+                min-width: 65px;
+                padding: 12px 8px;
+            }
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+            .countdown-container {
+                gap: 10px;
+            }
+        }
+        
+        /* Estilos para la sección de recordatorios - 3 COLUMNAS */
+        .reminders-section {
+            background: linear-gradient(135deg, #f8f6ff 0%, #f0ebfa 100%);
+            padding: 60px 0;
+        }
+        
+        .reminder-item {
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .reminder-item.animate-reminder {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reminder-icon {
+            font-size: 2.5rem;
+            color: #7c5cbf;
+            margin-bottom: 15px;
+        }
+        
+        .reminder-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #4a6fa5;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #7c5cbf;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        
+        .reminder-text {
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .reminder-text p {
+            margin-bottom: 5px;
+        }
+        
+        .versiculo-small {
+            font-style: italic;
+            color: #7c5cbf;
+            font-size: 0.75rem;
+            margin-top: 8px;
+        }
+        
+        /* ========== SECCIÓN NOSOTROS ========== */
+        .about-section {
+            background: linear-gradient(135deg, #f0f3ff 0%, #e8f1fe 100%);
+            padding: 70px 0;
+        }
+        
+        .about-card-enhanced {
+            background: white;
+            border-radius: 30px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(124,92,191,0.15);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: 1px solid rgba(124,92,191,0.2);
+        }
+        
+        .about-card-enhanced:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 50px rgba(124,92,191,0.25);
+        }
+        
+        .about-img-circle {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #7c5cbf;
+            box-shadow: 0 15px 30px rgba(124,92,191,0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+        }
+        
+        .about-img-circle:hover {
+            transform: scale(1.03);
+            border-color: #4a6fa5;
+        }
+        
+        .about-name-large {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #4a6fa5;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .about-role {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #7c5cbf;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        
+        .about-icon {
+            font-size: 1.8rem;
+            color: #7c5cbf;
+            margin-top: 12px;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .about-img-circle {
+                width: 170px;
+                height: 170px;
+            }
+            .about-name-large {
+                font-size: 1.7rem;
+            }
+            .about-role {
+                font-size: 0.95rem;
+            }
+            .about-card-enhanced {
+                padding: 25px 20px;
+                margin-bottom: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-img-circle {
+                width: 150px;
+                height: 150px;
+            }
+            .about-name-large {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Estilos para la sección de historia */
+        .story-card {
+            background: linear-gradient(135deg, #7c5cbf15, #4a6fa515);
+            border-radius: 20px;
+            border-left: 5px solid #7c5cbf;
+            padding: 25px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+            height: 100%;
+            min-height: 280px;
+        }
+        
+        .story-card-right {
+            background: linear-gradient(135deg, #7c5cbf15, #4a6fa515);
+            border-radius: 20px;
+            border-left: 5px solid #7c5cbf;
+            padding: 25px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+            height: 100%;
+            min-height: 280px;
+        }
+        
+        .story-card.animate-story,
+        .story-card-right.animate-story {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .story-card:hover,
+        .story-card-right:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(124,92,191,0.2);
+        }
+        
+        .story-card h4,
+        .story-card-right h4 {
+            color: #4a6fa5;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .story-date {
+            color: #7c5cbf;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        
+        .story-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .story-img:hover {
+            transform: scale(1.02);
+        }
+        
+        .story-row {
+            margin-bottom: 50px;
+            display: flex;
+            align-items: stretch;
+        }
+        
+        .story-row .col-md-6 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .bg-gallery {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/carousel-1.jpg);
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #7c5cbf, #4a6fa5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover a {
+            opacity: 1;
+        }
+        
+        .section-fade {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #7c5cbf, #4a6fa5);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124,92,191,0.4);
+            background: linear-gradient(135deg, #6b4ca8, #3d5e8c);
+        }
+        
+        .text-primary {
+            color: #7c5cbf !important;
+        }
+        
+        @media (max-width: 991px) {
+            .story-card, .story-card-right {
+                margin-top: 20px;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            .story-row {
+                margin-bottom: 40px;
+            }
+            .story-img {
+                height: 250px;
+            }
+            .story-card, .story-card-right {
+                min-height: auto;
+            }
+            .reminder-item {
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .story-img {
+                height: 220px;
+                margin-bottom: 15px;
+            }
+            .story-card, .story-card-right {
+                padding: 20px;
+            }
+        }
+        
+        .reminders-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .reminder-col {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0 15px;
+        }
+        @media (min-width: 768px) {
+            .reminder-col {
+                flex: 0 0 33.333%;
+                max-width: 33.333%;
+            }
+        }
+        
+        /* Estilos adicionales para la sección evento mejorada */
+        .event-card {
+            background: white;
+            border-radius: 35px;
+            padding: 40px 30px;
+            box-shadow: 0 30px 50px rgba(124,92,191,0.2);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(124,92,191,0.2);
+        }
+        .event-card:hover {
+            transform: translateY(-8px);
+        }
+        .verse-custom {
+            font-size: 1.1rem;
+            font-style: italic;
+            background: #f8f6ff;
+            padding: 20px;
+            border-radius: 25px;
+            color: #4a6fa5;
+            margin-bottom: 30px;
+            border-left: 6px solid #7c5cbf;
+        }
+        
+        /* Botones de confirmación grandes y elegantes - SIN COLOR VERDE */
+        .btn-confirm-large {
+            background: linear-gradient(135deg, #7c5cbf, #4a6fa5);
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 60px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 320px;
+            margin: 10px auto;
+            box-shadow: 0 8px 20px rgba(124,92,191,0.3);
+            letter-spacing: 1px;
+        }
+        .btn-confirm-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(124,92,191,0.4);
+            background: linear-gradient(135deg, #6b4ca8, #3d5e8c);
+            color: white;
+        }
+        .btn-confirm-large i {
+            font-size: 1.3rem;
+        }
+        .contact-buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 30px 0 20px;
+        }
+        @media (max-width: 768px) {
+            .btn-confirm-large {
+                padding: 14px 20px;
+                font-size: 1rem;
+                max-width: 280px;
+            }
+            .contact-buttons-container {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- INVITACIÓN INICIAL -->
+    <div id="invitationOverlay" class="invitation-overlay">
+        <div class="a4-invitation">
+            <div class="invitation-svg-bg"></div>
+            <div class="btn-music-choice">
+                <button id="enterWithMusicBtn" class="btn-music btn-music-primary">
+                    <i class="fas fa-music"></i> Ingresar con música
+                </button>
+                <button id="enterWithoutMusicBtn" class="btn-music btn-music-secondary">
+                    <i class="fas fa-volume-mute"></i> Ingresar sin música
+                </button>
+            </div>
+            <div id="waxSeal" class="wax-seal-real"></div>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div id="mainContent">
+        <!-- HERO -->
+        <div class="hero-fixed" id="home">
+            <img src="fotonovios.svg" alt="Jennifer y Gustavo">
+            <div class="hero-overlay">
+                <div class="p-3" style="max-width: 900px;">
+                    <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Jennifer & Gustavo</h1>
+                    <div class="border-box">
+                        <h3 class="text-uppercase font-weight-normal text-white m-0">Nos vamos a casar</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <div class="about-section" id="about">
+            <div class="container py-3">
+                <div class="section-title position-relative text-center section-fade">
+                    <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Nosotros</h6>
+                    <h1 class="font-secondary display-4">Jennifer & Gustavo</h1>
+                    <i class="far fa-heart text-dark"></i>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <div class="about-card-enhanced">
+                            <div class="d-flex justify-content-center">
+                                <img class="about-img-circle" src="img/about-1.jpg" alt="Gustavo Méndez">
+                            </div>
+                            <div class="about-name-large">Gustavo Méndez</div>
+                            <div class="about-role">El Novio</div>
+                            <div class="about-icon"><i class="fa fa-male"></i></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="about-card-enhanced">
+                            <div class="d-flex justify-content-center">
+                                <img class="about-img-circle" src="img/about-2.jpg" alt="Jennifer Rojas">
+                            </div>
+                            <div class="about-name-large">Jennifer Rojas</div>
+                            <div class="about-role">La Novia</div>
+                            <div class="about-icon"><i class="fa fa-female"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RECORDATORIOS -->
+        <div class="reminders-section" id="reminders">
+            <div class="container py-4">
+                <div class="section-title position-relative text-center mb-5 section-fade">
+                    <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Información Importante</h6>
+                    <h1 class="font-secondary display-4">Recordatorios</h1>
+                    <i class="far fa-heart text-dark"></i>
+                </div>
+                <div class="reminders-row">
+                    <div class="reminder-col">
+                        <div class="reminder-item" data-animate="reminder">
+                            <div class="reminder-icon"><i class="far fa-clock"></i></div>
+                            <h3 class="reminder-title">Horario</h3>
+                            <div class="reminder-text">
+                                <p><strong>12:00 pm</strong><br>Discurso Bíblico</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reminder-col">
+                        <div class="reminder-item" data-animate="reminder">
+                            <div class="reminder-icon"><i class="fas fa-tshirt"></i></div>
+                            <h3 class="reminder-title">Vestimenta</h3>
+                            <div class="reminder-text">
+                                <p>Vestimenta formal - Ropa apropiada, con modestia y buen juicio.</p>
+                                <div class="versiculo-small">"Asimismo, que las mujeres se arreglen con vestido decoroso, con modestia y buen juicio" <br>(1 Timoteo 2:9)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reminder-col">
+                        <div class="reminder-item" data-animate="reminder">
+                            <div class="reminder-icon"><i class="fas fa-hourglass-half"></i></div>
+                            <h3 class="reminder-title">Puntualidad</h3>
+                            <div class="reminder-text">
+                                <p>Queremos disfrutar junto a ustedes. Les animamos a estar a tiempo tanto en la conferencia como en la recepción.</p>
+                                <div class="versiculo-small">"Pero que todas las cosas se hagan decentemente y con orden" <br>(1 Corintios 14:40)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STORY -->
+        <div class="container-fluid py-5" id="story">
+            <div class="container pt-5 pb-3">
+                <div class="section-title position-relative text-center section-fade">
+                    <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Historia</h6>
+                    <h1 class="font-secondary display-4">Nuestra Historia de Amor</h1>
+                    <i class="far fa-heart text-dark"></i>
+                </div>
+                <div class="container position-relative p-0">
+                    <div class="row story-row">
+                        <div class="col-md-6 text-center text-md-right">
+                            <img class="story-img" src="img/nosotros.jpeg" alt="">
+                        </div>
+                        <div class="col-md-6 text-center text-md-left">
+                            <div class="story-card" data-animate="story-left">
+                                <h4>Nos Conocimos</h4>
+                                <div class="story-date">2020</div>
+                                <p>Nos conocimos en la congregación por una reestructuración. Desde el 2020 concordamos con salidas de amigos. Pero sobre todo nos conocimos más cuando realizamos actividades espirituales. En la pandemia pudimos conocernos un poco más.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row story-row">
+                        <div class="col-md-6 text-center text-md-right order-md-1 order-2">
+                            <div class="story-card-right" data-animate="story-right">
+                                <h4>Nuestro Noviazgo</h4>
+                                <div class="story-date">Agosto 2023</div>
+                                <p>En agosto del 2023 tomamos una decisión de poder conocernos un poco más y con la ayuda de nuestros padres lo logramos.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center text-md-left order-md-2 order-1">
+                            <img class="story-img" src="img/story-2.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row story-row">
+                        <div class="col-md-6 text-center text-md-right">
+                            <img class="story-img" src="img/story-3.jpg" alt="">
+                        </div>
+                        <div class="col-md-6 text-center text-md-left">
+                            <div class="story-card" data-animate="story-left">
+                                <h4>Nos Comprometimos 💍</h4>
+                                <div class="story-date">2024</div>
+                                <p>Con la ayuda de Jehová y de unos amigos pudimos darle una linda sorpresa a mi novia. Algo sencillo que agrade a Jehová.</p>
+                                <div class="versiculo-small mt-2">"háganlo todo para la gloria de Dios" (1 Corintios 10:31)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GALLERY -->
+        <div class="container-fluid bg-gallery" id="gallery" style="padding: 120px 0; margin: 90px 0;">
+            <div class="section-title position-relative text-center" style="margin-bottom: 120px;">
+                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Galeria</h6>
+                <h1 class="font-secondary display-4 text-white">Nuestra Galeria de Fotos</h1>
+                <i class="far fa-heart text-white"></i>
+            </div>
+            <div class="owl-carousel gallery-carousel">
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-1.jpg" alt=""><a href="img/gallery-1.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-2.jpg" alt=""><a href="img/gallery-2.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-3.jpg" alt=""><a href="img/gallery-3.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-4.jpg" alt=""><a href="img/gallery-4.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-5.jpg" alt=""><a href="img/gallery-5.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-6.jpg" alt=""><a href="img/gallery-6.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+            </div>
+        </div>
+
+        <!-- EVENTO - VERSÍCULO ACTUALIZADO Y FECHA CORRECTA -->
+        <div class="container-fluid py-5" id="event">
+            <div class="container py-5">
+                <div class="section-title position-relative text-center section-fade">
+                    <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Evento</h6>
+                    <h2 class="font-secondary display-5">Es un gran honor invitarte al consejo bíblico</h2>
+                    <h1 class="font-secondary display-4">Discurso De Bodas</h1>
+                    <i class="far fa-heart text-dark"></i>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="event-card">
+                            <div class="verse-custom text-center">
+                                <i class="fas fa-heart" style="color:#7c5cbf; margin-right:8px;"></i> 
+                                1 Juan 4:18 <br>
+                                "No hay temor en el amor, sino que el amor perfecto echa fuera el temor, porque el temor nos limita. En realidad, el que tiene temor no ha sido hecho perfecto en el amor."
+                                <i class="fas fa-heart" style="color:#7c5cbf; margin-left:8px;"></i>
+                            </div>
+                            
+                            <div class="text-center mb-4">
+                                <img class="img-fluid mb-4" src="img/event-1.png" alt="" style="max-width: 180px;">
+                                <h3 class="font-secondary display-4">Salón del Reino</h3>
+                                <h4 class="font-secondary display-5 mt-3">Juebes 29 de Octubre 2026</h4>
+                                <h4 class="font-secondary display-5">Hora: 12:00 am</h4>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <a href="https://maps.app.goo.gl/gqUPQKbcz4gTwWgG7?g_st=aw" target="_blank" class="btn btn-primary px-5 py-3">
+                                    <i class="fas fa-map-marker-alt mr-2"></i> Ver Ubicación en Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COUNTDOWN NUEVA FECHA: 29 DE OCTUBRE 2026 -->
+        <div class="countdown-section">
+            <div class="countdown-title">Faltan</div>
+            <div class="countdown-subtitle">para celebrar nuestro amor</div>
+            <div id="countdown" class="countdown-container"></div>
+        </div>
+
+        <!-- RSVP - Confirmación con botones grandes y elegantes (sin verde) -->
+        <div class="container-fluid py-5" id="rsvp">
+            <div class="container py-5">
+                <div class="section-title position-relative text-center section-fade">
+                    <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Confirma tu Asistencia</h6>
+                    <h1 class="font-secondary display-4">Conferencia Bíblica</h1>
+                    <p>Estamos felices de poder compartir este gran día con su compañía</p>
+                    <i class="far fa-heart text-dark"></i>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <p class="mb-4 lead">Confirma tu presencia vía WhatsApp</p>
+                        
+                        <!-- Dos botones grandes para confirmar a cada número -->
+                        <div class="contact-buttons-container">
+                            <a href="https://wa.me/593984235552?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Jennifer%20y%20Gustavo" target="_blank" class="btn-confirm-large">
+                                <i class="fab fa-whatsapp"></i> Confirmar aquí 1
+                            </a>
+                            <a href="https://wa.me/593983120255?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Jennifer%20y%20Gustavo" target="_blank" class="btn-confirm-large">
+                                <i class="fab fa-whatsapp"></i> Confirmar aquí 2
+                            </a>
+                        </div>
+                    
+                        <p class="text-muted mt-3 small">* Al hacer clic serás redirigido a WhatsApp para confirmar tu presencia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="container-fluid bg-dark text-white py-5" id="contact" style="margin-top: 90px;">
+            <div class="container text-center py-5">
+                <div class="section-title position-relative text-center">
+                    <h1 class="font-secondary display-3 text-white">Gracias</h1>
+                    <i class="far fa-heart text-white"></i>
+                </div>
+                <div class="d-flex justify-content-center mb-4">
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="d-flex justify-content-center flex-wrap py-2">
+                    <p class="text-white">0984235552</p>
+                    <span class="px-3">|</span>
+                    <p class="text-white">0983120255</p>
+                    <span class="px-3">|</span>
+                    <p class="text-white">contacto@boda.com</p>
+                </div>
+                <p class="m-0">&copy; <a class="text-primary" href="#">Nave Tech</a>. Diseñado por <a class="text-primary" href="#">Ing. Esteban Loachamin</a></p>
+            </div>
+        </div>
+
+        <button id="floatingMusicBtn" class="floating-music-btn"><i class="fas fa-music"></i></button>
+    </div>
+
+    <audio id="audioPlayer" loop><source src="img/musica.mp3" type="audio/mpeg"></audio>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        const overlay = document.getElementById('invitationOverlay');
+        const mainContent = document.getElementById('mainContent');
+        const audio = document.getElementById('audioPlayer');
+        const enterWithMusic = document.getElementById('enterWithMusicBtn');
+        const enterWithoutMusic = document.getElementById('enterWithoutMusicBtn');
+        const waxSeal = document.getElementById('waxSeal');
+        const floatingBtn = document.getElementById('floatingMusicBtn');
+        let musicPlaying = false;
+
+        function updateFloatingIcon() {
+            if(floatingBtn) {
+                floatingBtn.innerHTML = (!audio.paused && musicPlaying) ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-music"></i>';
+            }
+        }
+
+        function openInvitation(playMusic) {
+            if(playMusic) {
+                audio.play().then(() => {
+                    musicPlaying = true;
+                    updateFloatingIcon();
+                }).catch(e => console.log("Autoplay bloqueado:", e));
+                audio.loop = true;
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+                musicPlaying = false;
+                updateFloatingIcon();
+            }
+            
+            overlay.classList.add('fade-out-overlay');
+            mainContent.style.display = 'block';
+            document.body.classList.add('scrollable');
+            document.body.style.overflow = 'auto';
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 600);
+        }
+
+        if(enterWithMusic) enterWithMusic.addEventListener('click', (e) => { e.preventDefault(); openInvitation(true); });
+        if(enterWithoutMusic) enterWithoutMusic.addEventListener('click', (e) => { e.preventDefault(); openInvitation(false); });
+        
+        if(waxSeal) {
+            waxSeal.addEventListener('click', () => {
+                waxSeal.style.transform = "translateX(-50%) scale(0.93)";
+                setTimeout(() => { waxSeal.style.transform = "translateX(-50%)"; }, 150);
+            });
+        }
+        
+        if(floatingBtn) {
+            floatingBtn.addEventListener('click', () => {
+                if(audio.paused) {
+                    audio.play();
+                    musicPlaying = true;
+                } else {
+                    audio.pause();
+                    musicPlaying = false;
+                }
+                updateFloatingIcon();
+            });
+        }
+
+        // COUNTDOWN: FECHA 29 de Octubre 2026 a las 12:00 pm
+        var eventDate = new Date("October 29, 2026 12:00:00").getTime();
+        
+        function updateCountdown() {
+            var now = new Date().getTime();
+            var distance = eventDate - now;
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            var cd = document.getElementById("countdown");
+            if(cd) {
+                if(distance < 0) {
+                    cd.innerHTML = '<div class="countdown-card" style="grid-column:1/-1; padding:30px;"><div class="countdown-number" style="font-size:1.8rem;">¡El evento ha comenzado!</div></div>';
+                } else {
+                    cd.innerHTML = `
+                        <div class="countdown-card"><div class="countdown-number">${days}</div><div class="countdown-unit">Días</div></div>
+                        <div class="countdown-card"><div class="countdown-number">${hours}</div><div class="countdown-unit">Horas</div></div>
+                        <div class="countdown-card"><div class="countdown-number">${minutes}</div><div class="countdown-unit">Minutos</div></div>
+                        <div class="countdown-card"><div class="countdown-number">${seconds}</div><div class="countdown-unit">Segundos</div></div>
+                    `;
+                }
+            }
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        $(document).ready(function(){
+            $(".gallery-carousel").owlCarousel({
+                loop: true,
+                margin: 10,
+                responsiveClass: true,
+                responsive: {
+                    0: { items: 1, nav: true },
+                    600: { items: 2, nav: false },
+                    1000: { items: 3, nav: true, loop: true }
+                }
+            });
+            
+            function checkVisibility() {
+                $('.section-fade').each(function() {
+                    var elementTop = $(this).offset().top;
+                    var windowBottom = $(window).scrollTop() + $(window).height();
+                    if (elementTop < windowBottom - 100) {
+                        $(this).addClass('visible');
+                    }
+                });
+                
+                $('.reminder-item').each(function(index) {
+                    var elementTop = $(this).offset().top;
+                    var windowBottom = $(window).scrollTop() + $(window).height();
+                    if (elementTop < windowBottom - 50) {
+                        setTimeout(() => {
+                            $(this).addClass('animate-reminder');
+                        }, index * 100);
+                    }
+                });
+                
+                $('.story-card, .story-card-right').each(function(index) {
+                    var elementTop = $(this).offset().top;
+                    var windowBottom = $(window).scrollTop() + $(window).height();
+                    if (elementTop < windowBottom - 50) {
+                        setTimeout(() => {
+                            $(this).addClass('animate-story');
+                        }, index * 150);
+                    }
+                });
+            }
+            
+            $(window).on('scroll', checkVisibility);
+            $(window).on('load', checkVisibility);
+            checkVisibility();
+        });
+    </script>
+</body>
+
+</html>
