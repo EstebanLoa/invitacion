@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Jennifer & Gustavo - Nos Casamos</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
@@ -14,7 +14,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -262,7 +262,7 @@
             font-size: clamp(0.9rem, 3vw, 1.5rem);
         }
         
-        /* ========== CONTADOR ELEGANTE REDISEÑADO ========== */
+        /* ========== CONTADOR ELEGANTE REDISEÑADO - RESPONSIVE MEJORADO ========== */
         .countdown-section {
             background: linear-gradient(135deg, #7e5ec4ee 0%, #7c5cbf 100%);
             padding: 70px 20px;
@@ -291,11 +291,12 @@
             font-weight: 400;
         }
         
+        /* Nuevo diseño responsive para el contador - usa grid flexible */
         .countdown-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
             max-width: 800px;
             margin: 0 auto;
@@ -304,24 +305,25 @@
         .countdown-card {
             background: white;
             border-radius: 20px;
-            padding: 20px 25px;
-            min-width: 110px;
+            padding: 18px 16px;
+            min-width: 90px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(124,92,191,0.12);
+            box-shadow: 0 15px 35px rgba(124,92,191,0.2);
             transition: all 0.3s ease;
-            border: 1px solid rgba(124,92,191,0.15);
+            border: 1px solid rgba(124,92,191,0.2);
+            flex: 1 0 auto;
+            max-width: 130px;
         }
         
         .countdown-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 25px 40px rgba(124,92,191,0.2);
-            border-color: rgba(124,92,191,0.3);
+            box-shadow: 0 25px 40px rgba(124,92,191,0.3);
         }
         
         .countdown-number {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.2rem;
-            font-weight: 700;
+            font-size: 2.8rem;
+            font-weight: 800;
             background: linear-gradient(135deg, #7c5cbf, #4a6fa5);
             background-clip: text;
             -webkit-background-clip: text;
@@ -333,27 +335,30 @@
         
         .countdown-unit {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #4a6fa5;
-            background: rgba(124,92,191,0.1);
+            background: rgba(124,92,191,0.12);
             display: inline-block;
             padding: 4px 12px;
-            border-radius: 30px;
+            border-radius: 40px;
         }
         
+        /* Responsive para móviles - el contador se ve perfecto */
         @media (max-width: 650px) {
             .countdown-container {
-                gap: 15px;
+                gap: 12px;
+                padding: 0 8px;
             }
             .countdown-card {
-                min-width: 75px;
-                padding: 15px 12px;
+                min-width: 70px;
+                padding: 12px 8px;
+                max-width: 95px;
             }
             .countdown-number {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             .countdown-unit {
                 font-size: 0.7rem;
@@ -365,19 +370,32 @@
         }
         
         @media (max-width: 480px) {
-            .countdown-card {
-                min-width: 65px;
-                padding: 12px 8px;
-            }
-            .countdown-number {
-                font-size: 1.8rem;
-            }
             .countdown-container {
                 gap: 10px;
+                justify-content: center;
+            }
+            .countdown-card {
+                min-width: 65px;
+                padding: 10px 6px;
+                max-width: 80px;
+            }
+            .countdown-number {
+                font-size: 1.6rem;
+            }
+            .countdown-unit {
+                font-size: 0.6rem;
+                padding: 2px 6px;
+            }
+            .countdown-title {
+                font-size: 1.8rem;
+            }
+            .countdown-subtitle {
+                font-size: 0.8rem;
+                margin-bottom: 30px;
             }
         }
         
-        /* Estilos para la sección de recordatorios - 3 COLUMNAS */
+        /* ========== RECORDATORIOS - TAMAÑO DE LETRA AUMENTADO ========== */
         .reminders-section {
             background: linear-gradient(135deg, #f8f6ff 0%, #f0ebfa 100%);
             padding: 60px 0;
@@ -397,38 +415,74 @@
         }
         
         .reminder-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;  /* Aumentado */
             color: #7c5cbf;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .reminder-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
+            font-size: 1.9rem;  /* Aumentado significativamente */
             font-weight: 700;
             color: #4a6fa5;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #7c5cbf;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #7c5cbf;
             display: inline-block;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
         }
         
         .reminder-text {
-            color: #555;
-            line-height: 1.5;
-            font-size: 0.9rem;
-            margin-top: 10px;
+            color: #2c3e50;
+            line-height: 1.6;
+            font-size: 1.1rem;  /* Tamaño base aumentado */
+            margin-top: 15px;
+            font-weight: 500;
         }
         
         .reminder-text p {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 1.15rem;  /* Párrafos más grandes */
         }
         
         .versiculo-small {
             font-style: italic;
             color: #7c5cbf;
-            font-size: 0.75rem;
-            margin-top: 8px;
+            font-size: 0.95rem;  /* Versículo un poco más grande */
+            margin-top: 12px;
+            font-weight: 500;
+            background: rgba(124,92,191,0.08);
+            padding: 10px;
+            border-radius: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .reminder-title {
+                font-size: 1.7rem;
+            }
+            .reminder-text {
+                font-size: 1rem;
+            }
+            .reminder-text p {
+                font-size: 1.05rem;
+            }
+            .reminder-icon {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .reminder-title {
+                font-size: 1.5rem;
+            }
+            .reminder-text {
+                font-size: 0.95rem;
+            }
+            .reminder-text p {
+                font-size: 1rem;
+            }
+            .versiculo-small {
+                font-size: 0.85rem;
+            }
         }
         
         /* ========== SECCIÓN NOSOTROS ========== */
@@ -511,16 +565,6 @@
             }
         }
         
-        @media (max-width: 480px) {
-            .about-img-circle {
-                width: 150px;
-                height: 150px;
-            }
-            .about-name-large {
-                font-size: 1.5rem;
-            }
-        }
-        
         /* Estilos para la sección de historia */
         .story-card {
             background: linear-gradient(135deg, #7c5cbf15, #4a6fa515);
@@ -593,11 +637,6 @@
             margin-bottom: 50px;
             display: flex;
             align-items: stretch;
-        }
-        
-        .story-row .col-md-6 {
-            display: flex;
-            align-items: center;
         }
         
         .bg-gallery {
@@ -690,19 +729,6 @@
             .story-card, .story-card-right {
                 min-height: auto;
             }
-            .reminder-item {
-                margin-bottom: 40px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .story-img {
-                height: 220px;
-                margin-bottom: 15px;
-            }
-            .story-card, .story-card-right {
-                padding: 20px;
-            }
         }
         
         .reminders-row {
@@ -722,7 +748,6 @@
             }
         }
         
-        /* Estilos adicionales para la sección evento mejorada */
         .event-card {
             background: white;
             border-radius: 35px;
@@ -745,7 +770,6 @@
             border-left: 6px solid #7c5cbf;
         }
         
-        /* Botones de confirmación grandes y elegantes - SIN COLOR VERDE */
         .btn-confirm-large {
             background: linear-gradient(135deg, #7c5cbf, #4a6fa5);
             color: white;
@@ -780,16 +804,6 @@
             gap: 30px;
             flex-wrap: wrap;
             margin: 30px 0 20px;
-        }
-        @media (max-width: 768px) {
-            .btn-confirm-large {
-                padding: 14px 20px;
-                font-size: 1rem;
-                max-width: 280px;
-            }
-            .contact-buttons-container {
-                gap: 15px;
-            }
         }
     </style>
 </head>
@@ -860,7 +874,7 @@
             </div>
         </div>
 
-        <!-- RECORDATORIOS -->
+        <!-- RECORDATORIOS - CON TEXTO MÁS GRANDE -->
         <div class="reminders-section" id="reminders">
             <div class="container py-4">
                 <div class="section-title position-relative text-center mb-5 section-fade">
@@ -875,7 +889,6 @@
                             <h3 class="reminder-title">Horario</h3>
                             <div class="reminder-text">
                                 <p><strong>12:00 pm</strong><br>Discurso Bíblico</p>
-                                
                             </div>
                         </div>
                     </div>
@@ -903,7 +916,7 @@
             </div>
         </div>
 
-        <!-- STORY -->
+        <!-- STORY SECTION (Mantener igual) -->
         <div class="container-fluid py-5" id="story">
             <div class="container pt-5 pb-3">
                 <div class="section-title position-relative text-center section-fade">
@@ -967,10 +980,18 @@
                 <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-4.jpg" alt=""><a href="img/gallery-4.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
                 <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-5.jpg" alt=""><a href="img/gallery-5.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
                 <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-6.jpg" alt=""><a href="img/gallery-6.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-7.jpg" alt=""><a href="img/gallery-7.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-8.jpg" alt=""><a href="img/gallery-8.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-9.jpg" alt=""><a href="img/gallery-9.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-10.jpg" alt=""><a href="img/gallery-10.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-11.jpg" alt=""><a href="img/gallery-11.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-12.jpg" alt=""><a href="img/gallery-12.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-13.jpg" alt=""><a href="img/gallery-13.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
+                <div class="gallery-item"><img class="img-fluid w-100" src="img/gallery-14.jpg" alt=""><a href="img/gallery-14.jpg" data-lightbox="gallery"><i class="fa fa-2x fa-plus text-white"></i></a></div>
             </div>
         </div>
 
-        <!-- EVENTO - VERSÍCULO ACTUALIZADO Y FECHA CORRECTA -->
+        <!-- EVENTO -->
         <div class="container-fluid py-5" id="event">
             <div class="container py-5">
                 <div class="section-title position-relative text-center section-fade">
@@ -992,8 +1013,8 @@
                             <div class="text-center mb-4">
                                 <img class="img-fluid mb-4" src="img/event-1.png" alt="" style="max-width: 180px;">
                                 <h3 class="font-secondary display-4">Salón del Reino</h3>
-                                <h4 class="font-secondary display-5 mt-3">Juebes 29 de Octubre 2026</h4>
-                                <h4 class="font-secondary display-5">Hora: 12:00 am</h4>
+                                <h4 class="font-secondary display-5 mt-3">Jueves 29 de Octubre 2026</h4>
+                                <h4 class="font-secondary display-5">Hora: 12:00 pm</h4>
                             </div>
                             
                             <div class="text-center mt-4">
@@ -1014,7 +1035,7 @@
             <div id="countdown" class="countdown-container"></div>
         </div>
 
-        <!-- RSVP - Confirmación con botones grandes y elegantes (sin verde) -->
+        <!-- RSVP -->
         <div class="container-fluid py-5" id="rsvp">
             <div class="container py-5">
                 <div class="section-title position-relative text-center section-fade">
@@ -1027,7 +1048,6 @@
                     <div class="col-lg-8 text-center">
                         <p class="mb-4 lead">Confirma tu presencia vía WhatsApp</p>
                         
-                        <!-- Dos botones grandes para confirmar a cada número -->
                         <div class="contact-buttons-container">
                             <a href="https://wa.me/593984235552?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Jennifer%20y%20Gustavo" target="_blank" class="btn-confirm-large">
                                 <i class="fab fa-whatsapp"></i> Confirmar aquí 1
